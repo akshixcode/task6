@@ -1,13 +1,24 @@
-const taskInput = document.getElementById('task-input');
-const addTaskBtn = document.getElementById('add-task-btn');
-const taskList = document.getElementById('task-list');
-
-addTaskBtn.addEventListener('click', () => {
-  const task = taskInput.value.trim();
-  if (task) {
-    const taskListItem = document.createElement('li');
-    taskListItem.textContent = task;
-    taskList.appendChild(taskListItem);
-    taskInput.value = '';
-  }
+document.getElementById('student-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const name = document.getElementById('name').value;
+  const grade = document.getElementById('grade').value;
+  const progress = document.getElementById('progress').value;
+  
+  addRecord(name, grade, progress);
+  
+  document.getElementById('student-form').reset();
 });
+
+function addRecord(name, grade, progress) {
+  const tableBody = document.getElementById('records-table').querySelector('tbody');
+  const newRow = document.createElement('tr');
+  
+  newRow.innerHTML = `
+      <td>${name}</td>
+      <td>${grade}</td>
+      <td>${progress}</td>
+  `;
+  
+  tableBody.appendChild(newRow);
+}
