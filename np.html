@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Management App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color:#1F305E;
+      height:100vh;
+      width:100vw;
+     
+    }
+    .body img{
+      width: 100%;
+      height: 100%;
+
+
+    }
+    .wrapper {
+    height: 100vh;
+    overflow-y: auto;
+   
+    
+  }
+  
+
+   
+
+    #task-input {
+      padding: 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      width: 50%;
+      margin: 20px auto;
+    }
+
+    #add-task-btn {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    #add-task-btn:hover {
+      background-color: #3e8e41;
+    }
+
+    #task-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #task-list li {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+      animation: fadeIn 0.5s;
+    }
+
+    #task-list li:last-child {
+      border-bottom: none;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    header {
+      background-color: #333;
+      color: #ee08bc;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    nav li {
+      margin-right: 20px;
+    }
+
+    
+
+    nav a:hover {
+      color: #ccc;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    
+.notification {
+  background-color: #000000;
+  color:#ccc;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  animation: fadeIn 0.5s;
+}
+#task-list li:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+  body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('https://th.bing.com/th/id/R.62e6349ab9cb72cf34d00bebf043d819?rik=eD5IFwVKP%2bWhag&riu=http%3a%2f%2fwww.ipadwallpapersonly.com%2fimages%2fwallpapers%2frfjejjjwj.jpg&ehk=Tg4jIxYjByx4T1jwWrvt1%2f39cJ42wg%2bf4tzFOt1isGY%3d&risl=&pid=ImgRaw&r=0'); 
+  background-size: cover; /* Add this line to cover the entire body */
+  background-position: center; /* Add this line to center the image */
+  background-repeat: no-repeat; /* Add this line to prevent the image from repeating */
+  height:100vh;
+  width:100vw;
+  float:left;
+
+}
+#description-box {
+  margin-top:30px;
+  padding: 20px;
+  background-color: rgba(27, 12, 12, 0.1);
+  color:white;
+}
+
+
+.calender-box{
+    background-color: #f0f0f0;
+    padding: 80px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+#footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  
+}
+
+  
+  .thumbs-up {
+    font-size: 24px;
+    color: #00ff00;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+
+  
+
+
+  input[type="checkbox"]:checked + .thumbs-up {
+    animation: hide-thumbs-up 1s forwards 1s;
+  }
+
+  @keyframes hide-thumbs-up {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+#calendar-table input[type="checkbox"] {
+    background-color: #000; 
+    padding: 80px;
+    border: none;
+    border-radius: 5px;
+
+    cursor: pointer;
+  }
+  
+  #calendar-table input[type="checkbox"]:checked {
+    background-color: #333; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+  }
+
+#footer-content {
+  height: 50px;
+  
+}
+#achievements {
+  background-color:rgba(252, 242, 242,0.2);
+  
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  color:#000;
+}
+
+#achievements ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color:#000;
+  font-size:large;
+}
+
+#achievements li {
+  padding: 10px;
+  border-bottom: 1px solid #3f2727;
+}
+
+#achievements li:last-child {
+  border-bottom: none;
+}
+
+#achievements i {
+  font-size: 24px;
+  margin-top: 300px;
+  color: #666;
+}
+
+#achievements span {
+  font-size: 40px;
+  color: #333;
+}
+.sidebar {
+  position:absolute;
+  top: 80px;
+  left:0;
+
+  width: 200px;
+  height:800px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+
+  border-right: 1px solid #0a0909;
+  
+
+}
+.sidebar h2 {
+  margin-top: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  
+  margin: 10px;
+  padding:5px;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+  background-color:rgba(28, 8, 74,0.3);
+  border-left: solid 2px black;
+  border-bottom: #000;
+  border-radius: 10px;
+  width:200px;
+  height:100px;
+  padding:1px;
+  font-family: 'Tahoma',sans-serif;
+  box-shadow: 0px 0px 10px rgb(60, 41, 11);
+}
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: larger;
+  padding:20px;
+}
+
+.sidebar li:hover {
+  transform: scaleX(1.5);
+}
+
+
+  </style>
+</head>
+<body>
+  
+  </video>
+  <header>
+    <div class="logo">Task Management App</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+   
+
+  </header>
+  <main>
+    
+      <div class="wrapper">
+        <aside class="sidebar">
+          <h2>Options</h2>
+          <ul>
+            <li><a href="#">Important Tasks</a></li>
+            <li><a href="#">Track Previous Tasks</a></li>
+            <li><a href="#">Graph of Improvement</a></li>
+            <li><a href="#">Set Reminder</a></li>
+          </ul>
+        </aside>
+        <section class="main-content">
+
+     
+    
+    <input id="task-input" type="text" placeholder="Enter a task">
+    <button id="add-task-btn">Add Task</button>
+    <ul id="task-list">
+     
+    </ul>
+    <div id="notification-box">
+        
+      </div>
+      <div id="description-box">
+        <h2>Task Description</h2>
+        <div class="calendar-box">
+          <h3>Calendar</h3>
+          <table id="calendar-table">
+          
+            <tr>
+              <th>Month</th>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+              <th>Saturday</th>
+              <th>Sunday</th>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+            </tr>
+            <tr>
+                <td>Weekdays</td>
+                <td><input type="checkbox" id="jan-mon" /><label for="jan-mon">1</label></td>
+                <td><input type="checkbox" id="feb-mon" /><label for="feb-mon">2</label></td>
+                <td><input type="checkbox" id="mar-mon" /><label for="mar-mon">3</label></td>
+                <td><input type="checkbox" id="apr-mon" /><label for="apr-mon">4</label></td>
+                <td><input type="checkbox" id="may-mon" /><label for="may-mon">5</label></td>
+                <td><input type="checkbox" id="jun-mon" /><label for="jun-mon">6</label></td>
+                <td><input type="checkbox" id="jul-mon" /><label for="jul-mon">7</label></td>
+                <td><input type="checkbox" id="aug-mon" /><label for="aug-mon">8</label></td>
+                <td><input type="checkbox" id="sep-mon" /><label for="sep-mon">9</label></td>
+            <td><input type="checkbox" id="oct-mon" /><label for="oct-mon">10</label></td>
+            <td><input type="checkbox" id="nov-mon" /><label for="nov-mon">11</label></td>
+            <td><input type="checkbox" id="dec-mon" /><label for="dec-mon">12</label></td>
+          </tr>
+          <tr>
+            <td>Weekends</td>
+           
+            <td><input type="checkbox" id="jan-sun" /><label for="jan-sun">13</label></td>
+            <td><input type="checkbox" id="feb-sun" /><label for="feb-sun">14</label></td>
+            <td><input type="checkbox" id="mar-sun" /><label for="mar-sun">15</label></td>
+            <td><input type="checkbox" id="apr-sun" /><label for="apr-sun">16</label></td>
+            <td><input type="checkbox" id="may-sun" /><label for="may-sun">17</label></td>
+            <td><input type="checkbox" id="jun-sun" /><label for="jun-sun">18</label></td>
+            <td><input type="checkbox" id="jul-sun" /><label for="jul-sun">19</label></td>
+            <td><input type="checkbox" id="aug-sun" /><label for="aug-sun">20</label></td>
+            <td><input type="checkbox" id="sep-sun" /><label for="sep-sun">21</label></td>
+        </tr><td><input type="checkbox" id="sep-sun" /><label for="sep-sun">22</label></td>
+        <td><input type="checkbox" id="sep-sun" /><label for="sep-sun">23</label></td>
+        <td><input type="checkbox" id="sep-sun" /><label for="sep-sun">24</label></td>
+        <td><input type="checkbox" id="sep-sun" /><label for="sep-sun">25</label></td>
+        <td><input type="checkbox" id="sep-sun" /><label for="sep-sun">26</label></td>
+        <td><input type="checkbox" id="sep-sun" /><label for="sep-sun">27</label></td>
+        <td><input type="checkbox" id="sep-sun" /><label for="sep-sun">28</label></td>
+        <td><input type="checkbox" id="sep-sun" /><label for="sep-sun">29</label></td>
+        <td><input type="checkbox" id="sep-sun" /><label for="sep-sun">30</label></td>
+        <td><input type="checkbox" id="sep-sun" /><label for="sep-sun">31</label></td>
+    </table>
+        </div>
+      </section>
+      </div>
+      </main>
+      
+    
+   
+<section id="achievements">
+  <h2>Achievements</h2>
+  <ul>
+    <li>
+      <i class="fas fa-trophy"></i>
+      <span>Completed 10 tasks in a row</span>
+    </li>
+    <li>
+      <i class="fas fa-star"></i>
+      <span>Reached a milestone of 50 completed tasks</span>
+    </li>
+    <li>
+      <i class="fas fa-clock"></i>
+      <span>Completed a task in under 30 minutes</span>
+    </li>
+    
+  </ul>
+</section>
+  </div>
+  
+  <footer id="footer">
+    <div id="footer-content">
+      <p>&copy; 2023 Task Management App</p>
+      <p>Terms of Use | Privacy Policy</p>
+      <p>Contact Us: <a href="mailto:contact@akaakshitapalwal@gmail.com">contact@taskmanagementapp.com</a></p>
+    </div>
+  </footer>
+</div>
+</main>
+
+  <script>
+    const taskInput = document.getElementById('task-input');
+    const addTaskBtn = document.getElementById('add-task-btn');
+    const taskList = document.getElementById('task-list');
+    const notificationBox = document.getElementById('notification-box');
+    const cartoonBox = document.getElementById('cartoon-box');
+    const cartoon = document.getElementById('cartoon');
+
+    addTaskBtn.addEventListener('click', () => {
+      const task = taskInput.value.trim();
+      if (task) {
+        const taskListItem = document.createElement('li');
+        taskListItem.textContent = task;
+        taskList.appendChild(taskListItem);
+       
+        const notification = document.createElement('div');
+        notification.textContent = `Task added: ${task}`;
+        notification.className = 'notification';
+        notificationBox.appendChild(notification);
+        document.getElementById('my-checkbox').addEventListener('click', function() {
+    
+    setTimeout(function() {
+      document.querySelector('.thumbs-up').style.opacity = 0;
+    }, 1000);
+  });
+      
+      }
+    });
+  </script>
+</body>
+</html>
