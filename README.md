@@ -1,3 +1,12 @@
+
+![Screenshot (94)](https://github.com/user-attachments/assets/8178e069-2e93-4f88-bacd-23a3d8a28ec6)
+![Screenshot (93)](https://github.com/user-attachments/assets/88ff14dd-af98-4c81-a836-559126c9672e)
+
+
+
+
+
+
 <<<<<<< HEAD
 # 🚀 Getting started with Strapi
 
