@@ -10,8 +10,8 @@ terraform{
 
 provider "aws"{
     region ="ap-south-1"
-    access_key = "AKIAQ37DIXL2MLAIBMMG"
-    secret_key = "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" 
+    access_key = "access key"
+    secret_key = "secretkey" 
     }
 
 resource "tls_private_key" "rsa_4096" {
@@ -35,7 +35,7 @@ resource "local_file" "private_key" {
 }
 
 resource "aws_instance" "public_instance" {
-  ami           = "ami-0f918f7e67a3323f0"
+  ami           = "my-ami"
   instance_type = "t2.micro"
   key_name=aws_key_pair.key_pair.key_name
 
